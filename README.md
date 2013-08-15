@@ -14,3 +14,6 @@ Example
     <bean id="barA" class="com.sample.Bar"/>
     <bean id="barB" class="com.sample.Bar"/>
 ```
+
+
+Inspired by http://www.mkyong.com/spring/spring-how-to-pass-a-date-into-bean-property-customdateeditor/
