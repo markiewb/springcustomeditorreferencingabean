@@ -1,11 +1,11 @@
 package com.sample.spring;
 
-import java.beans.PropertyEditorSupport;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.beans.propertyeditors.CustomCollectionEditor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
@@ -13,9 +13,17 @@ import org.springframework.context.ApplicationContextAware;
  *
  * @author markiewb
  */
-public class StringToBeanConverter extends PropertyEditorSupport implements ApplicationContextAware {
+public class StringToBeanConverter extends CustomCollectionEditor implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
+
+    public StringToBeanConverter() {
+        this(List.class);
+    }
+    
+    public StringToBeanConverter(Class collectionType) {
+        super(collectionType);
+    }
 
     @Override
     public void setAsText(String text) {
